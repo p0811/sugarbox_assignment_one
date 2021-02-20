@@ -48,9 +48,15 @@ exports.userCreate = async(req, res) => {
 }
 
 
-exports.deleteUser = (req, res) => {
+/**
+ * 
+ * @param {*} req 
+ * @param {*} res 
+ */
+exports.deleteUser = async(req, res) => {
     try {
         let objectId = req.params.id;
+        console.log("objectId", objectId)
         await Users.deleteOne({ _id: objectId });
         return res.status(200).json({
             "status_code": 200,
@@ -65,7 +71,12 @@ exports.deleteUser = (req, res) => {
         //     return res.status(200).send();
         // })
     } catch (err) {
-
+        return res.status(500).json({
+            "status_code": 500,
+            "success": false,
+            'message': err.message,
+            'data': {}
+        });
     }
 
 

@@ -12,6 +12,7 @@ const suggerboxUser = require('../controller/suggerBoxUsers')
  */
 
 router.post('/user', suggerboxUser.userCreate);
+router.delete('/user/:id', suggerboxUser.userCreate);
 
 
 
