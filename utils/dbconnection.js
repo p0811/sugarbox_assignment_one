@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb+srv://sugarbox:sugarbox@cluster0.8fevm.mongodb.net/sugarbox_assignment?retryWrites=true&w=majority', {
+mongoose.connect('mongodb://localhost/sugarbox_assignment?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true
@@ -14,3 +14,6 @@ db.on("error", err => {
 db.on("connected", (err, res) => {
     console.log("connection successfully stablish:")
 })
+
+
+//mongodb+srv://sugarbox:sugarbox@cluster0.8fevm.mongodb.net/sugarbox_assignment?retryWrites=true&w=majority

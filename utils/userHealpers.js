@@ -28,3 +28,17 @@ exports.checkEmailExists = (emailId) => {
         }
     })
 }
+
+
+//check user email exist or not
+
+exports.checkUserExists = (id) => {
+    return new Promise(async(resolve, reject) => {
+        try {
+            let userCount = await Users.count({ _id: id })
+            resolve(userCount)
+        } catch (error) {
+            reject(new Error(error))
+        }
+    })
+}

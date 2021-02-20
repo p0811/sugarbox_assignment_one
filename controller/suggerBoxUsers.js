@@ -56,20 +56,23 @@ exports.userCreate = async(req, res) => {
 exports.deleteUser = async(req, res) => {
     try {
         let objectId = req.params.id;
-        console.log("objectId", objectId)
+        // check user exists or not 
+        let userExist = await userHealper.checkUserExists(objectId)
+        if (userExist === 0) {
+            return res.status(200).json({
+                "status_code": 406,
+                "success": false,
+                'message': "user not found",
+                'data': {}
+            });
+        }
         await Users.deleteOne({ _id: objectId });
-        return res.status(200).json({
+        return res.status(406).json({
             "status_code": 200,
             "success": true,
             'message': "user successfully deleted",
             'data': {}
         });
-        // Users.findOneAndRemove({ _id: objectId }, function(err) {
-        //     if (err) {
-        //         res.status(500).send();
-        //     }
-        //     return res.status(200).send();
-        // })
     } catch (err) {
         return res.status(500).json({
             "status_code": 500,
