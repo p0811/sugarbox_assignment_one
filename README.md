@@ -4,9 +4,11 @@
 # set up process 
 # sudo npm install
 # for start server  :: node bin/www  or nodemon start or npm start 
+# Database name :: sugarbox_assignment
+# Collection Name :: suggerbox_users 
 
 # API End point 
-
+#   for all api end point please check postman collection
 # 1 create user 
 # 127.0.0.1:8000/sugerbox/user 
 # Method :: POST
