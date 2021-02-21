@@ -4,13 +4,13 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
-const db = require('./utils/dbconnection')
 const apiValidator = require('./middleware/apiValidator');
 
 const indexRouter = require('./routes/index');
 // const usersRouter = require('./routes/users');
 
 const app = express();
+//header token validation
 app.use(apiValidator);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
